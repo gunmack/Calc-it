@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Calculator</h1>
+    <form method="post">
+        <div class="calculator">
+            <input type="text" name="expression" id="expression" placeholder="0" value="{{ expression }}" readonly>
+            <div class="buttons">
+                <!-- Number buttons -->
+             
+                {% for i in range(7, 10, 1) %}
+                    <button type="button" onclick="appendToExpression('{{ i }}')">{{ i }}</button>
+                {% endfor %} 
+                
+                <button type="submit" name="delete" value="true">DEL</button>
+                <button type="submit" name="clear" value="true">C</button>
+                
+                {% for i in range(4, 7, 1) %}
+                    <button type="button" onclick="appendToExpression('{{ i }}')">{{ i }}</button>
+                {% endfor %}
+                
+                <button type="button" onclick="appendToExpression(['*'])">×</button>
+                <button type="button" onclick="appendToExpression(['/'])">÷</button> 
+                
+                {% for i in range(1, 4, 1) %}
+                    <button type="button" onclick="appendToExpression('{{ i }}')">{{ i }}</button>
+                {% endfor %} 
+
+                
+                <button type="button" onclick="appendToExpression(['+'])">+</button>
+                <button type="button" onclick="appendToExpression(['-'])">-</button>
+
+                <button type="button" onclick="appendToExpression('{{ 0 }}')">{{ 0 }}</button>
+               
+                <button type="button" onclick="appendToExpression(['.'])">.</button>
+              
+                <button type="button" onclick="appendToExpression('(')">(</button> 
+                <button type="button" onclick="appendToExpression(')')">)</button>
+                
+
+                <button type="submit">=</button>
+                
+            </div>
+        </div>
+    </form>
+    <h2>{{ result }}</h2>
+    <script>
+        function appendToExpression(value) {
+            const expr = document.getElementById('expression');
+            expr.value += value;
+        }
+        function clearExpression() {
+            document.getElementById('expression').value= ' ';
+        }
+    </script>
+</body>
+</html>
