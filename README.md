@@ -1,5 +1,3 @@
-in cmd
-use `python -m flask run`
-
-for venv:
-use `env/Scripts/activate`
+For testing: 
+- in powershell
+use `python -m flask run --debug`
