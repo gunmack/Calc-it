@@ -47,7 +47,7 @@ def tokenize(expression):
 
     # tokens = re.findall(r'/\-?\d*\.?\d+[\+\-/%x()]\-?\d*\.?\d+', expression)
 
-    if len(tokens)>1 and tokens[0] == '-' and tokens[1].isdigit():
+    if len(tokens)>1 and tokens[0] == '-':
         tokens[1] = '-' + tokens[1]
         tokens.pop(0)
     # print(f"Tokens: {tokens}") 
@@ -99,13 +99,13 @@ def evaluate_expression(expression):
     i = 0
     while i < len(tokens):
         token = tokens[i]
-        
+        # print(f"Token: {token}")
         if token.isdigit() or re.match(r'-?\d+\.?\d*', token):
             if '.' in token:
                 values.append(float(token))
             else:
                 values.append(int(token))
-            print(f"values: {values}")
+            # print(f"values: {values}")
         elif token == '(':
             operators.append(token)
         elif token == ')':
@@ -118,7 +118,6 @@ def evaluate_expression(expression):
             operators.append(token)
         
         i += 1
-    
     while operators:
         apply_operator(operators, values)
     
