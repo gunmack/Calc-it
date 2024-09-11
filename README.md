@@ -35,7 +35,7 @@ Next open up a terminal and navigate to the directory with [app.py](app.py)
 - if using wsl,
   run<br/>
   ```markdown
-  $ flask --app hello run
+  $ flask --app hello run --debug
   ```
 
 # Version 1.0 (2024-09-11)
