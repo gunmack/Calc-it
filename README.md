@@ -1,3 +1,3 @@
-For testing: 
-- in powershell
-use `python -m flask run --debug`
+# Dev branch
+
+Refer to master branch README.md for more info
