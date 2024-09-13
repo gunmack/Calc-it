@@ -42,3 +42,4 @@ Next open up a terminal and navigate to the directory with [app.py](app.py)
 
 - Accepts only single expression inputs in the form of:
   ``` Number operator Number ```
+
