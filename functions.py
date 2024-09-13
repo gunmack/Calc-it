@@ -73,7 +73,7 @@ def evaluate_expression(expression):
         operator = operators.pop()
         right = values.pop()
         left = values.pop()
-        print(f"Should be: {left} {operator} {right}")
+        # print(f"Should be: {left} {operator} {right}")
         if operator == '+':
             values.append(add(left,right))
             # values.append(left+right)
@@ -86,7 +86,7 @@ def evaluate_expression(expression):
         elif operator == '/':
             values.append(divide((left),(right)))
             # values.append(left/right)
-        print(f"Evaluating: {left} {operator} {right}") 
+        # print(f"Evaluating: {left} {operator} {right}") 
     
     def precedence(op):
         return precedence[op] if op in precedence else 0
