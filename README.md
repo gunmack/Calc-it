@@ -36,6 +36,10 @@ Flask shares the same command for both systems
     ```markdown
     flask --app app.py run
     ```
+  - Open a browser and navigate to 
+    ```
+    http://127.0.0.1:5000
+    ```
 
 
 # Versions
