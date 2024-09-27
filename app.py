@@ -15,9 +15,7 @@ def numberpad():
 
     if request.method == "POST":
         if 'delete' in request.form:
-            # x = len(expression)
             expression = expression[:-1]
-
         if 'clear' in request.form:
             expression = ""
             result + ""
@@ -26,8 +24,6 @@ def numberpad():
         else:
             if expression:
                 try:
-                    # TODO: import and use own functions instead of eval (done)
-                    # result = eval(expression)
                     result = evaluate_expression(expression)
                     expression = result
                     recall = expression [:]
