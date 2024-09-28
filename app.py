@@ -16,7 +16,7 @@ def numberpad():
     if request.method == "POST":
         if 'delete' in request.form:
             expression = expression[:-1]
-        if 'clear' in request.form:
+        elif 'clear' in request.form:
             expression = ""
             result + ""
         elif 'recall' in request.form:
