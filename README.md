@@ -9,7 +9,7 @@ and tokenize each part of the expression.
 
 [templates](templates/) contains [numberpad.html](templates/numberpad.html) which generates a numberpad on localhost for user input.
 
-The colours are funky, coming from [styles.css](static/styles.css).
+HTML styling coming from [styles.css](static/styles.css).
 
 
 
