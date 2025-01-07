@@ -11,42 +11,51 @@ and tokenize each part of the expression.
 
 HTML styling coming from [styles.css](static/styles.css).
 
-
-
-# Install and run
+## Install and run
 
 For convenience, create and activate a [python virtual environment](https://docs.python.org/3/library/venv.html)
 
-and then install the required version of flask by running: <br/>
+and then install the required version of flask by running:
+
 - for Windows
-  ```markdown 
+
+  ```markdown
   pip install -r requirements.txt
   ```
 
 - for Ubuntu
-  ```markdown 
+
+  ```markdown
   pip install -r UBUrequirements.txt
-  ```  
+  ```
 
 Next open up a terminal and navigate to the directory with [app.py](app.py)
 
 Flask shares the same command for both systems
 
-  - Run the app with<br/> 
-    ```markdown
-    flask --app app.py run
-    ```
-  - Open a browser and navigate to 
-    ```
-    http://127.0.0.1:5000
-    ```
+- Run the app with:
 
+  ```markdown
+  python -m flask --app app.py run
+  ```
 
-# Versions
+- Open a browser and navigate to
+
+  ```html
+  http://127.0.0.1:5000
+  ```
+
+## Versions
+
+- 1.1 (2025-01-07)
+
+  - Added support for longer expressions
+  - No error messages yet
+
 - 1.0 (2024-09-11)
-  
-  - Accepts only single expression inputs in the form of:
-    ``` 
-    Number operator Number 
-    ```
 
+  - Accepts only single expression inputs in the form of:
+
+    ```text
+    Number operator Number
+    ```
