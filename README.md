@@ -47,6 +47,11 @@ Flask shares the same command for both systems
 
 ## Versions
 
+- 1.1 (2025-01-07)
+
+  - Added support for longer expressions
+  - No error messages yet
+
 - 1.0 (2024-09-11)
 
   - Accepts only single expression inputs in the form of:
