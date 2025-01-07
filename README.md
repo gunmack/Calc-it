@@ -7,9 +7,9 @@ and tokenize each part of the expression.
 
 [functions.py](functions.py) contains the code for all the tokenization and operator logic.
 
-[templates](templates/) contains [numberpad.html](templates/numberpad.html) which generates a numberpad for user input.
+[templates](templates/) contains [numberpad.html](templates/index.html) which generates a numberpad for user input.
 
-HTML styling coming from [styles.css](static/styles.css).
+HTML styling comes from [styles.css](static/styles.css).
 
 ## Install and run
 
@@ -50,6 +50,7 @@ Flask shares the same command for both systems
 - 1.1 (2025-01-07)
 
   - Added support for longer expressions
+  - Deployed to [vercel](https://calc-it-gunmack.vercel.app/)
   - No error messages yet
 
 - 1.0 (2024-09-11)
