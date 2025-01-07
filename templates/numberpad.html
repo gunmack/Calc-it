@@ -2,16 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Single expression calculator</title>
+    <title>Calc-it</title>
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='favicon.ico') }}"
+      type="image/x-icon"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <div class="container">
-      <h1>Single expression calculator</h1>
+      <a
+        href="https://github.com/gunmack/Single-Expression-Calculator"
+        class="back-arrow"
+        title="Go Back"
+      ></a>
+      <h1>Calc-it</h1>
       <form method="post">
         <div class="calculator">
           <input
@@ -66,62 +76,16 @@
         </div>
       </form>
       <h2>{{ result }}</h2>
-      <script>
-        function appendToExpression(value) {
-          const expr = document.getElementById("expression");
-          expr.value += value;
-        }
-        function clearExpression() {
-          document.getElementById("expression").value = " ";
-        }
-
-        function deleteLastCharacter() {
-          const expr = document.getElementById("expression");
-          expr.value = expr.value.slice(0, -1);
-        }
-
-        document.addEventListener("keydown", function (event) {
-          const key = event.key;
-
-          // Prevent default behavior for certain keys (like Enter and Backspace)
-          if (key === "Enter" || key === "Backspace") {
-            event.preventDefault();
-          }
-
-          // Numbers and symbols
-          if (key >= "0" && key <= "9") {
-            appendToExpression(key);
-          }
-
-          // Operators
-          if (
-            key === "+" ||
-            key === "-" ||
-            key === "*" ||
-            key === "/" ||
-            key === "(" ||
-            key === ")"
-          ) {
-            appendToExpression(key);
-          }
-
-          // Decimal point
-          if (key === ".") {
-            appendToExpression(key);
-          }
-
-          // Backspace (DEL)
-          if (key === "Backspace") {
-            deleteLastCharacter();
-          }
-
-          // Evaluate expression with Enter
-          if (key === "Enter") {
-            // Submit form (since the button is a submit)
-            document.querySelector("form").submit();
-          }
-        });
-      </script>
+      <script src="{{ url_for('static', filename='script.js') }}"></script>
     </div>
   </body>
+  <footer>
+    Made with
+    <a
+      href="https://flask.palletsprojects.com/en/stable/"
+      target="_blank"
+      rel="noopener"
+      >Flask</a
+    >
+  </footer>
 </html>

@@ -1,13 +1,13 @@
-# Single Expression Calculator
+# Calc-it
 
-This flask app was built with Python 3.12 and [Flask 3.0.3](requirements.txt).
+This calculator was built with Python 3.12 and [Flask 3.0.3](requirements.txt).
 
 The logic for this program uses several [regular expressions](https://en.wikipedia.org/wiki/Regular_expression) to read the user input
 and tokenize each part of the expression.
 
 [functions.py](functions.py) contains the code for all the tokenization and operator logic.
 
-[templates](templates/) contains [numberpad.html](templates/numberpad.html) which generates a numberpad on localhost for user input.
+[templates](templates/) contains [numberpad.html](templates/numberpad.html) which generates a numberpad for user input.
 
 HTML styling coming from [styles.css](static/styles.css).
 

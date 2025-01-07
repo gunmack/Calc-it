@@ -4,43 +4,13 @@
   --background-end-rgb: 0, 0, 0;
 }
 
-@media only screen and(max-width: 600px) {
-  .column-title {
-    flex: 5%;
-  }
-  body {
-    padding-left: 1%;
-    padding-right: 1%;
-  }
-}
-
-@media only screen and (min-width: 770px) {
-  .column-title {
-    flex: 5%;
-  }
-  body {
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .column-title {
-    flex: 10%;
-  }
-
-  body {
-    padding-left: 30%;
-    padding-right: 30%;
-  }
-}
-
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  margin: 0;
+
   background-color: black;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -51,6 +21,7 @@ body {
     rgb(var(--background-start-rgb));
   font-family: "Space Mono", monospace;
   background-color: rgb(70, 130, 180);
+  padding: 5%; /* Added padding for small screens */
 }
 
 .container {
@@ -60,8 +31,9 @@ body {
 }
 
 h1 {
-  margin-bottom: 20px;
+  margin-bottom: 2%;
   color: yellowgreen;
+  text-align: center;
 }
 
 .calculator {
@@ -71,35 +43,149 @@ h1 {
 }
 
 input {
-  margin: 5px;
-  padding: 10px;
-  font-size: 30px;
+  margin: 2%;
+  padding: 2%;
+  font-size: large;
   text-align: center;
-  width: 400px;
+  width: 95%;
   border-radius: 25px;
+  text-align: right;
 }
 
 .buttons {
   display: grid;
-  grid-template-columns: repeat(5, 75px);
-  gap: 15px;
-  margin-top: 10px;
+  grid-template-columns: repeat(5, 1fr); /* Auto-adjust button width */
+  gap: 4%; /* Smaller gap for small screens */
+  margin-top: 8%;
   align-items: center;
   justify-content: center;
 }
 
 button {
   padding: 15px;
-  font-size: 18px;
+  font-size: 16px; /* Adjust font size for smaller screens */
   font-weight: bold;
   cursor: pointer;
-  border-radius: 25px;
+  border-radius: 30%;
   background-color: gray;
   color: black;
-  transition: all 0.3s ease;
+  transition: all 0.8s ease;
 }
 
 button:hover {
   background-color: green;
   color: yellow;
+}
+
+footer {
+  margin-top: 5%;
+  color: white;
+  text-align: center;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 600px) {
+  body {
+    padding: 8%; /* Reduce padding for small screens */
+    max-width: 80%;
+  }
+
+  .container {
+    padding: 10%;
+    border-radius: 5%; /* Adjust border radius */
+  }
+
+  .buttons {
+    grid-template-columns: repeat(5, 1fr); /* Fewer buttons per row */
+    gap: 4%; /* Smaller gaps */
+  }
+
+  button {
+    padding: 10px; /* Smaller button size */
+    font-size: 14px; /* Reduce font size */
+  }
+
+  input {
+    font-size: medium; /* Adjust input font size */
+  }
+
+  h1 {
+    font-size: 24px; /* Adjust heading size */
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1200px) {
+  body {
+    min-height: 100vh;
+  }
+  .container {
+    width: 80%; /* Wider container for medium screens */
+  }
+
+  input {
+    width: 70%; /* Wider input field */
+  }
+
+  .buttons {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2%; /* Slightly larger gaps */
+  }
+
+  button {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+}
+
+.back-arrow {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: yellowgreen;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.back-arrow::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border: solid black;
+  border-width: 3px 3px 0 0;
+  transform: rotate(-135deg);
+  display: inline-block;
+}
+
+.back-arrow:hover {
+  background-color: green;
+  transform: scale(1.1);
+}
+
+.back-arrow:active {
+  transform: scale(0.9);
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+  .back-arrow {
+    width: 30px;
+    height: 30px;
+  }
+
+  .back-arrow::before {
+    width: 10px;
+    height: 10px;
+    border-width: 2px 2px 0 0;
+  }
 }

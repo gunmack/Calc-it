@@ -7,7 +7,7 @@ app = Flask(__name__)
 def index():
     return redirect(url_for('numberpad'))
 
-@app.route("/calculator", methods=["GET", "POST"])
+@app.route("/calc-it", methods=["GET", "POST"])
 def numberpad():
     expression = request.form.get("expression", "")
     result = ""
