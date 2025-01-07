@@ -30,7 +30,7 @@ def numberpad():
                 except Exception as e:
                     result = "Error"
 
-    return render_template('numberpad.html', expression=expression)
+    return render_template('index.html', expression=expression)
 
 if __name__ == "__main__":
     app.run()
