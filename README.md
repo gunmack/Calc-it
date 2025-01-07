@@ -19,23 +19,15 @@ and then install the required version of flask by running:
 
 - for Windows
 
-  ````markdown
+  ```markdown
   pip install -r requirements.txt
-
-  ```html
-
   ```
-  ````
 
 - for Ubuntu
 
-  ````markdown
+  ```markdown
   pip install -r UBUrequirements.txt
-
-  ```html
-
   ```
-  ````
 
 Next open up a terminal and navigate to the directory with [app.py](app.py)
 
@@ -44,7 +36,7 @@ Flask shares the same command for both systems
 - Run the app with:
 
   ```markdown
-  flask --app app.py run
+  python -m flask --app app.py run
   ```
 
 - Open a browser and navigate to
@@ -59,6 +51,6 @@ Flask shares the same command for both systems
 
   - Accepts only single expression inputs in the form of:
 
-    ```
+    ```text
     Number operator Number
     ```

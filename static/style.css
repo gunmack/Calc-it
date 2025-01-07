@@ -1,85 +1,105 @@
-@media only screen and(max-width: 600px){
-    .column-title{
-        flex: 5%;
-    }
-    body{
-        padding-left: 1%;
-        padding-right: 1%;
-    }
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
 }
 
-@media only screen and (min-width: 770px){
-    .column-title{
-        flex: 5%;
-    }
-    body{
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-    
+@media only screen and(max-width: 600px) {
+  .column-title {
+    flex: 5%;
+  }
+  body {
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+}
+
+@media only screen and (min-width: 770px) {
+  .column-title {
+    flex: 5%;
+  }
+  body {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
 }
 @media only screen and (min-width: 1200px) {
-    .column-title{
-        flex: 10%;
-    }
+  .column-title {
+    flex: 10%;
+  }
 
-    body{
-        padding-left: 30%;
-        padding-right: 30%;
-    }
+  body {
+    padding-left: 30%;
+    padding-right: 30%;
+  }
 }
 
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0;
-    background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: black;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  font-family: "Space Mono", monospace;
+  background-color: rgb(70, 130, 180);
+}
+
+.container {
+  border: 5px solid black;
+  padding: 5%;
+  border-radius: 10%;
 }
 
 h1 {
-    margin-bottom: 20px;
-    color: yellowgreen;
+  margin-bottom: 20px;
+  color: yellowgreen;
 }
 
 .calculator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 input {
-    margin: 5px;
-    padding: 10px;
-    font-size: 30px;
-    text-align: center;
-    width: 400px;
-    border-radius: 25px;
+  margin: 5px;
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+  width: 400px;
+  border-radius: 25px;
 }
 
 .buttons {
-    display: grid;
-    grid-template-columns: repeat(5, 75px);
-    gap: 15px;
-    margin-top: 10px;
-    align-items: center;
-    justify-content: center; 
-    
+  display: grid;
+  grid-template-columns: repeat(5, 75px);
+  gap: 15px;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
 }
 
 button {
-    padding: 15px;
-    font-size: 18px;
-    font-weight:bold;
-    cursor:pointer;
-    border-radius: 25px;
-    color:black;
-    background-color: crimson;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 25px;
+  background-color: gray;
+  color: black;
+  transition: all 0.3s ease;
 }
 
 button:hover {
-    background-color: chartreuse;
+  background-color: green;
+  color: yellow;
 }

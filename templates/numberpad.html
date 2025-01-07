@@ -1,62 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title> Single expression calculator</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <h1>Single expression calculator</h1>
-    <form method="post">
+  <head>
+    <meta charset="utf-8" />
+    <title>Single expression calculator</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Single expression calculator</h1>
+      <form method="post">
         <div class="calculator">
-            <input type="text" name="expression" id="expression" placeholder="0" value="{{ expression }}" readonly>
-            <div class="buttons">
-                <!-- Number buttons -->
-             
-                {% for i in range(7, 10, 1) %}
-                    <button type="button" onclick="appendToExpression('{{ i }}')">{{ i }}</button>
-                {% endfor %} 
-                
-                <button type="submit" name="delete" value="true">DEL</button>
-                <button type="submit" name="clear" value="true">C</button>
-                
-                {% for i in range(4, 7, 1) %}
-                    <button type="button" onclick="appendToExpression('{{ i }}')">{{ i }}</button>
-                {% endfor %}
-                
-                <button type="button" onclick="appendToExpression(['*'])">×</button>
-                <button type="button" onclick="appendToExpression(['/'])">÷</button> 
-                
-                {% for i in range(1, 4, 1) %}
-                    <button type="button" onclick="appendToExpression('{{ i }}')">{{ i }}</button>
-                {% endfor %} 
+          <input
+            type="text"
+            name="expression"
+            id="expression"
+            placeholder="0"
+            value="{{ expression }}"
+            readonly
+          />
+          <div class="buttons">
+            <!-- Number buttons -->
 
-                
-                <button type="button" onclick="appendToExpression(['+'])">+</button>
-                <button type="button" onclick="appendToExpression(['-'])">-</button>
+            {% for i in range(7, 10, 1) %}
+            <button type="button" onclick="appendToExpression('{{ i }}')">
+              {{ i }}
+            </button>
+            {% endfor %}
 
-                <button type="button" onclick="appendToExpression('{{ 0 }}')">{{ 0 }}</button>
-               
-                <button type="button" onclick="appendToExpression(['.'])">.</button>
-              
-                <button type="button" onclick="appendToExpression('(')">(</button> 
-                <button type="button" onclick="appendToExpression(')')">)</button>
-                
+            <button type="submit" name="delete" value="true">DEL</button>
+            <button type="submit" name="clear" value="true">C</button>
 
-                <button type="submit">=</button>
-                
-            </div>
+            {% for i in range(4, 7, 1) %}
+            <button type="button" onclick="appendToExpression('{{ i }}')">
+              {{ i }}
+            </button>
+            {% endfor %}
+
+            <button type="button" onclick="appendToExpression(['*'])">×</button>
+            <button type="button" onclick="appendToExpression(['/'])">÷</button>
+
+            {% for i in range(1, 4, 1) %}
+            <button type="button" onclick="appendToExpression('{{ i }}')">
+              {{ i }}
+            </button>
+            {% endfor %}
+
+            <button type="button" onclick="appendToExpression(['+'])">+</button>
+            <button type="button" onclick="appendToExpression(['-'])">-</button>
+
+            <button type="button" onclick="appendToExpression('{{ 0 }}')">
+              {{ 0 }}
+            </button>
+
+            <button type="button" onclick="appendToExpression(['.'])">.</button>
+
+            <button type="button" onclick="appendToExpression('(')">(</button>
+            <button type="button" onclick="appendToExpression(')')">)</button>
+
+            <button type="submit">=</button>
+          </div>
         </div>
-    </form>
-    <h2>{{ result }}</h2>
-    <script>
+      </form>
+      <h2>{{ result }}</h2>
+      <script>
         function appendToExpression(value) {
-            const expr = document.getElementById('expression');
-            expr.value += value;
+          const expr = document.getElementById("expression");
+          expr.value += value;
         }
         function clearExpression() {
-            document.getElementById('expression').value= ' ';
+          document.getElementById("expression").value = " ";
         }
-    </script>
-</body>
+
+        function deleteLastCharacter() {
+          const expr = document.getElementById("expression");
+          expr.value = expr.value.slice(0, -1);
+        }
+
+        document.addEventListener("keydown", function (event) {
+          const key = event.key;
+
+          // Prevent default behavior for certain keys (like Enter and Backspace)
+          if (key === "Enter" || key === "Backspace") {
+            event.preventDefault();
+          }
+
+          // Numbers and symbols
+          if (key >= "0" && key <= "9") {
+            appendToExpression(key);
+          }
+
+          // Operators
+          if (
+            key === "+" ||
+            key === "-" ||
+            key === "*" ||
+            key === "/" ||
+            key === "(" ||
+            key === ")"
+          ) {
+            appendToExpression(key);
+          }
+
+          // Decimal point
+          if (key === ".") {
+            appendToExpression(key);
+          }
+
+          // Backspace (DEL)
+          if (key === "Backspace") {
+            deleteLastCharacter();
+          }
+
+          // Evaluate expression with Enter
+          if (key === "Enter") {
+            // Submit form (since the button is a submit)
+            document.querySelector("form").submit();
+          }
+        });
+      </script>
+    </div>
+  </body>
 </html>
