@@ -32,8 +32,8 @@ def divide(x,y):
 precedence = {
     '+': 1,
     '-': 1,
-    '*': 2,
-    '/': 2,
+    '*': 1,
+    '/': 1,
 }
 
 def apply_operator(operators, values):
