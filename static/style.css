@@ -26,7 +26,7 @@ body {
 
 .container {
   border: 5px solid black;
-  padding: 5%;
+  padding: 2%;
   border-radius: 10%;
 }
 
@@ -84,7 +84,7 @@ footer {
 }
 
 /* Responsive Styles */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1200px) {
   body {
     padding: 8%; /* Reduce padding for small screens */
     max-width: 80%;
@@ -111,33 +111,6 @@ footer {
 
   h1 {
     font-size: 24px; /* Adjust heading size */
-  }
-}
-
-@media only screen and (min-width: 600px) and (max-width: 1200px) {
-  body {
-    min-height: 100vh;
-  }
-  .container {
-    width: 80%; /* Wider container for medium screens */
-  }
-
-  input {
-    width: 70%; /* Wider input field */
-  }
-
-  .buttons {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2%; /* Slightly larger gaps */
-  }
-
-  button {
-    padding: 12px;
-    font-size: 16px;
-  }
-
-  h1 {
-    font-size: 28px;
   }
 }
 
